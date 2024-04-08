@@ -8,3 +8,24 @@
   font-weight: weight;
   font-style: normal;
 }
+
+.slide {
+  color: rgb(44, 44, 229);
+  height: 90vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.slide1 {
+  background-image: url("../src/assets/img/slide 1.jpg");
+}
+.slide2 {
+  background-image: url("../src/assets/img/slide 2.jpg");
+}
+.slide3 {
+  background-image: url("../src/assets/img/slide 3.jpg");
+}

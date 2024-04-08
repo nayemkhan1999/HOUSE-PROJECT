@@ -1,11 +1,33 @@
+import "swiper/css";
+import "swiper/css/bundle";
+import { Navigation } from 'swiper/modules';
+import { Swiper, SwiperSlide } from "swiper/react";
+
 
 const Home = () => {
-
   return (
     <div className="container mx-auto">
-      <h2 className="text4xl">I am Home Page</h2>
-    </div>
-  )
-}
 
-export default Home
+      <Swiper 
+      navigation={true} modules={[Navigation]} 
+      loop={true}
+      
+      >
+        <SwiperSlide><div className="slide slide1">
+        <h1>Slide 1</h1>
+      </div></SwiperSlide>
+        <SwiperSlide><div className="slide slide2">
+        <h1>Slide 2</h1>
+      </div></SwiperSlide>
+        <SwiperSlide> <div className="slide slide3">
+        <h1>Slide 3</h1>
+      </div></SwiperSlide>
+      </Swiper>
+      {/* 
+      
+      */}
+    </div>
+  );
+};
+
+export default Home;
