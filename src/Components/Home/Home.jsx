@@ -1,31 +1,51 @@
 import "swiper/css";
 import "swiper/css/bundle";
-import { Navigation } from 'swiper/modules';
+import { Autoplay, Navigation } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
-
+import Footer from "../Footer/Footer";
 
 const Home = () => {
   return (
     <div className="container mx-auto">
-
-      <Swiper 
-      navigation={true} modules={[Navigation]} 
-      loop={true}
-      
+      <Swiper
+        navigation={true}
+        modules={[Navigation, Autoplay]}
+        loop={true}
+        autoplay={{ delay: 2000 }}
       >
-        <SwiperSlide><div className="slide slide1">
-        <h1>Slide 1</h1>
-      </div></SwiperSlide>
-        <SwiperSlide><div className="slide slide2">
-        <h1>Slide 2</h1>
-      </div></SwiperSlide>
-        <SwiperSlide> <div className="slide slide3">
-        <h1>Slide 3</h1>
-      </div></SwiperSlide>
+        <SwiperSlide>
+          <div className="slide slide1"></div>
+        </SwiperSlide>
+        <SwiperSlide>
+          <div className="slide slide2"></div>
+        </SwiperSlide>
+
+        <SwiperSlide>
+          {" "}
+          <div className="slide slide3"></div>
+        </SwiperSlide>
+        <SwiperSlide>
+          {" "}
+          <div className="slide slide4"></div>
+        </SwiperSlide>
+        <SwiperSlide>
+          {" "}
+          <div className="slide slide5"></div>
+        </SwiperSlide>
+        <SwiperSlide>
+          {" "}
+          <div className="slide slide6"></div>
+        </SwiperSlide>
+        <SwiperSlide>
+          {" "}
+          <div className="slide slide7"></div>
+        </SwiperSlide>
+        <SwiperSlide>
+          {" "}
+          <div className="slide slide8"></div>
+        </SwiperSlide>
       </Swiper>
-      {/* 
-      
-      */}
+      <Footer></Footer>
     </div>
   );
 };

@@ -1,15 +1,13 @@
-import { Outlet } from "react-router-dom"
-import Nav from "../NavSection/Nav"
-
+import { Outlet } from "react-router-dom";
+import Nav from "../NavSection/Nav";
 
 const Root = () => {
   return (
     <div>
       <Nav></Nav>
-    
-     <Outlet></Outlet>
+      <Outlet></Outlet>
     </div>
-  )
-}
+  );
+};
 
-export default Root
+export default Root;

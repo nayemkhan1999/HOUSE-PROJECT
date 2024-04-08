@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
 
 import { Link } from "react-router-dom";
@@ -6,6 +6,7 @@ import { AuthContex } from "../FireBaseProvider/FireBaseProvider";
 
 const Registar = () => {
   const { createUser } = useContext(AuthContex);
+  const [error, setError] = useState("");
 
   const {
     register,
@@ -22,6 +23,12 @@ const Registar = () => {
       .catch((error) => {
         console.log(error);
       });
+
+      if(password.length < 6){
+        setError("Password must be 6 charctors")
+        return
+      }
+    
   };
 
   return (
@@ -90,6 +97,9 @@ const Registar = () => {
                   </span>
                 )}
               </div>
+              {
+                error && <small className="text-red-600">{error}</small>
+              }
               <div className="form-control mt-6">
                 <button className="btn btn-error text-white font-bold text-xl">
                   Registar
@@ -105,12 +115,14 @@ const Registar = () => {
                   Privacy
                 </span>
               </p> */}
-             <div className="text-center">
-             <Link to="/login">
-                <span className="text-base">Already a member </span>
-                <span className="text-blue-700  font-bold underline ">Login now</span>
-              </Link>
-             </div>
+              <div className="text-center">
+                <Link to="/login">
+                  <span className="text-base">Already a member </span>
+                  <span className="text-blue-700  font-bold underline ">
+                    Login now
+                  </span>
+                </Link>
+              </div>
             </form>
           </div>
         </div>
