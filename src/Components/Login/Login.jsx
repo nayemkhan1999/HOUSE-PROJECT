@@ -3,6 +3,8 @@ import { useForm } from "react-hook-form";
 import { FaGithubSquare } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
 import { Link } from "react-router-dom";
+
+import "../../login.css";
 import { AuthContex } from "../FireBaseProvider/FireBaseProvider";
 
 const Login = () => {
@@ -25,10 +27,10 @@ const Login = () => {
       });
   };
   return (
-    <div className="container mx-auto">
+    <div className="container mx-auto img">
       <div className="hero ">
         <div className="hero-content ">
-          <div className="card shrink-0 w-96  text-white bg-[#151A21]">
+          <div className="card shrink-0 w-96  text-white bg-[#555] shadow-xl opacity-70 z-10">
             <h1 className="text-5xl font-bold mx-auto mt-2">House</h1>
             <form onSubmit={handleSubmit(onSubmit)} className="card-body">
               <div className="form-control">
@@ -62,7 +64,6 @@ const Login = () => {
                     This field is required
                   </span>
                 )}
-             
               </div>
               <div className="form-control mt-3">
                 <button className="btn btn-error text-white font-bold text-xl">
@@ -70,28 +71,27 @@ const Login = () => {
                 </button>
               </div>
               <label className="opacity-60">
-                  <a href="#">Forgot password?</a>
-                </label>
+                <a href="#">Forgot password?</a>
+              </label>
 
               <div className="flex flex-col w-full">
                 <div className="divider divider-neutral">Or Login With</div>
               </div>
               <div className="flex text-center items-center mx-auto gap-2 text-4xl">
-           {/* Another LInks */}
-       
-               <FcGoogle />
-               <FaGithubSquare />
+                {/* Another LInks */}
+
+                <FcGoogle />
+                <FaGithubSquare />
               </div>
 
-              
-             <div className="text-center">
-             <Link to="/registar">
-                <span > New to House? </span>
-                <span className="text-blue-700  font-bold underline ">
-                  Sign up now
-                </span>
-              </Link>
-             </div>
+              <div className="text-center">
+                <Link to="/registar">
+                  <span> New to House? </span>
+                  <span className="text-success  font-bold underline ">
+                    Sign up now
+                  </span>
+                </Link>
+              </div>
             </form>
           </div>
         </div>

@@ -2,6 +2,7 @@ import { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
 
 import { Link } from "react-router-dom";
+import "../../login.css";
 import { AuthContex } from "../FireBaseProvider/FireBaseProvider";
 
 const Registar = () => {
@@ -32,10 +33,10 @@ const Registar = () => {
   };
 
   return (
-    <div className="container mx-auto">
+    <div className="container mx-auto img">
       <div className="hero ">
         <div className="hero-content ">
-          <div className="card shrink-0 w-96  text-white bg-[#151A21]">
+          <div className="card shrink-0 w-96  text-white bg-[#555] shadow-xl opacity-70 z-10">
             <h1 className="text-5xl font-bold mx-auto mt-2">Registar</h1>
             <form onSubmit={handleSubmit(onSubmit)} className="card-body">
               <div className="form-control">
@@ -105,20 +106,11 @@ const Registar = () => {
                   Registar
                 </button>
               </div>
-              {/* <p className="opacity-60 text-center">
-                You agree to house
-                <span className="underline text-gray-400 font-bold mr-1 ml-1">
-                  Terms
-                </span>
-                and
-                <span className="underline text-gray-400 font-bold ml-1">
-                  Privacy
-                </span>
-              </p> */}
+           
               <div className="text-center">
                 <Link to="/login">
                   <span className="text-base">Already a member </span>
-                  <span className="text-blue-700  font-bold underline ">
+                  <span className="text-success font-bold underline ">
                     Login now
                   </span>
                 </Link>
