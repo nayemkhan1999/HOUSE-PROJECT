@@ -14,33 +14,31 @@ const Registar = () => {
   } = useForm();
 
   const onSubmit = (data) => {
-    const {email,password} = data;
-   createUser(email,password)
-   .then(result=>{
-    console.log(result.user);
-   })
-   .catch(error=>{
-    console.log(error);
-   })
+    const { email, password } = data;
+    createUser(email, password)
+      .then((result) => {
+        console.log(result.user);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   };
 
   return (
     <div className="container mx-auto">
       <div className="hero ">
         <div className="hero-content ">
-          <div className="card shrink-0 w-96  shadow-2xl bg-base-300">
-            <h1 className="text-5xl text-gray-600 font-bold mx-auto">
-              Registar now!
-            </h1>
+          <div className="card shrink-0 w-96  text-white bg-[#151A21]">
+            <h1 className="text-5xl font-bold mx-auto mt-2">Registar</h1>
             <form onSubmit={handleSubmit(onSubmit)} className="card-body">
               <div className="form-control">
                 <label className="label">
-                  <span className="label-text">FullName</span>
+                  <span className="">Full Name</span>
                 </label>
                 <input
                   type="FullName"
                   placeholder="FullName"
-                  className="input input-bordered"
+                  className="input input-bordered  text-black font-medium"
                   {...register("FullName", { required: true })}
                 />
                 {errors.FullName && (
@@ -51,12 +49,12 @@ const Registar = () => {
               </div>
               <div className="form-control">
                 <label className="label">
-                  <span className="label-text">Email</span>
+                  <span className="">Email</span>
                 </label>
                 <input
                   type="email"
                   placeholder="email"
-                  className="input input-bordered"
+                  className="input input-bordered  text-black font-medium"
                   {...register("email", { required: true })}
                 />
                 {errors.email && (
@@ -67,24 +65,23 @@ const Registar = () => {
               </div>
               <div className="form-control">
                 <label className="label">
-                  <span className="label-text">photoURL</span>
+                  <span className="">photoURL</span>
                 </label>
                 <input
                   type="photoURL"
                   placeholder="photoURL"
-                  className="input input-bordered"
+                  className="input input-bordered  text-black font-medium"
                   {...register("photoURL", { required: false })}
                 />
-               
               </div>
               <div className="form-control">
                 <label className="label">
-                  <span className="label-text">Password</span>
+                  <span className="">Password</span>
                 </label>
                 <input
                   type="password"
                   placeholder="password"
-                  className="input input-bordered"
+                  className="input input-bordered  text-black font-medium"
                   {...register("password", { required: true })}
                 />
                 {errors.password && (
@@ -92,20 +89,28 @@ const Registar = () => {
                     This field is required
                   </span>
                 )}
-                <label className="label">
-                  <a href="#" className="label-text-alt link link-hover">
-                    Forgot password?
-                  </a>
-                </label>
               </div>
               <div className="form-control mt-6">
-                <button className="btn btn-accent text-white font-bold text-xl">
+                <button className="btn btn-error text-white font-bold text-xl">
                   Registar
                 </button>
               </div>
-              <Link to="/login" className="text-blue-700 font-bold underline ">
-                Please Login
+              {/* <p className="opacity-60 text-center">
+                You agree to house
+                <span className="underline text-gray-400 font-bold mr-1 ml-1">
+                  Terms
+                </span>
+                and
+                <span className="underline text-gray-400 font-bold ml-1">
+                  Privacy
+                </span>
+              </p> */}
+             <div className="text-center">
+             <Link to="/login">
+                <span className="text-base">Already a member </span>
+                <span className="text-blue-700  font-bold underline ">Login now</span>
               </Link>
+             </div>
             </form>
           </div>
         </div>
