@@ -26,17 +26,24 @@ const FireBaseProvider = ({ children }) => {
 
   // Ovserber sideEffect
   useEffect(() => {
-    onAuthStateChanged(auth, (user) => {
+    
+    const unSubcribe =  onAuthStateChanged(auth, (user) => {
       if (user) {
         setUser(user);
+        
+        
       }
     });
+    return (()=>{
+      unSubcribe()
+    })
   }, []);
 
 
   const authInfo = {
     createUser,
-    loginUser
+    loginUser,
+    user
   };
 
   return <AuthContex.Provider value={authInfo}>

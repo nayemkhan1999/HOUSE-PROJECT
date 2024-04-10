@@ -1,6 +1,10 @@
+import { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
+import { AuthContex } from "../FireBaseProvider/FireBaseProvider";
+
 
 const Nav = () => {
+  const {user} = useContext(AuthContex)
   const Links = (
     <>
       <li>
@@ -71,11 +75,17 @@ const Nav = () => {
             <span className="absolute left-0 w-48 h-48 -ml-2 transition-all duration-300 origin-top-right -rotate-90 -translate-x-full translate-y-12 bg-gray-900 group-hover:-rotate-180 ease"></span>
             <span className="relative">LOGIN</span>
           </span>
+           
           <span
+          
             className="absolute bottom-0 right-0 w-full h-12 -mb-1 -mr-1 transition-all duration-200 ease-linear bg-gray-900 rounded-lg group-hover:mb-0 group-hover:mr-0"
             data-rounded="rounded-lg"
           ></span>
+          
         </Link>
+        {
+              user && <p>achi</p>
+            }
       </div>
     </div>
   );

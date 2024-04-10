@@ -3,10 +3,12 @@ import ReactDOM from "react-dom/client";
 import "./index.css";
 
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import CardDetails from "./Components/CardDetails/CardDetails";
 import Error from "./Components/Error/Error";
 import FireBaseProvider from "./Components/FireBaseProvider/FireBaseProvider";
 import Home from "./Components/Home/Home";
 import Login from "./Components/Login/Login";
+import PrivetRoute from "./Components/PrivetRoute/PrivetRoute";
 import Registar from "./Components/Registar/Registar";
 import Root from "./Components/Root/Root";
 import UpdateProfile from "./Components/UpdateProfile/UpdateProfile";
@@ -37,6 +39,10 @@ const router = createBrowserRouter([
       {
         path: "/login",
         element:<Login/>
+      },
+      {
+        path: "/details/:id",
+        element:<PrivetRoute><CardDetails/>,</PrivetRoute>
       },
     ],
   },

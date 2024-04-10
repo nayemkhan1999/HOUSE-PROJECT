@@ -1,14 +1,16 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
 import { FaGithubSquare } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
 import { Link } from "react-router-dom";
 
+import { FaEye, FaEyeSlash } from "react-icons/fa";
 import "../../login.css";
 import { AuthContex } from "../FireBaseProvider/FireBaseProvider";
 
 const Login = () => {
   const { loginUser } = useContext(AuthContex);
+  const [showpassword, setShowPassword] = useState(false);
 
   const {
     register,
@@ -49,16 +51,27 @@ const Login = () => {
                   </span>
                 )}
               </div>
-              <div className="form-control">
+              <div className="form-control relative">
                 <label className="label">
                   <span className="">Password</span>
                 </label>
-                <input
-                  type="password"
+
+            
+               <input
+                  type={showpassword ? "text" : "password"}
                   placeholder="password"
-                  className="input input-bordered text-black font-medium"
+                  className="input input-bordered text-black font-medium relative"
                   {...register("password", { required: true })}
                 />
+                <span
+                  className="absolute top-[53px] right-[15px] text-black text-lg"
+                  onClick={() => setShowPassword(!showpassword)}
+                >
+                  {showpassword ? <FaEyeSlash></FaEyeSlash> : <FaEye></FaEye>}
+                </span>
+           
+              
+
                 {errors.password && (
                   <span className="text-red-500 opacity-70 text-sm">
                     This field is required
