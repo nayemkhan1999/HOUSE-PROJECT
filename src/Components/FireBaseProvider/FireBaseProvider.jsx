@@ -1,7 +1,8 @@
 import {
   createUserWithEmailAndPassword,
   onAuthStateChanged,
-  signInWithEmailAndPassword,
+  signInWithEmailAndPassword, signOut,
+  updateProfile
 } from "firebase/auth";
 import { createContext, useEffect, useState } from "react";
 import { auth } from "../../FireBase.config";
@@ -10,8 +11,9 @@ export const AuthContex = createContext(null);
 
 // eslint-disable-next-line react/prop-types
 const FireBaseProvider = ({ children }) => {
+  const [reload,setReload] = useState(false)
   const [user, setUser] = useState(null);
-  console.log(user);
+  
 
 
   // Create User Function
@@ -24,26 +26,36 @@ const FireBaseProvider = ({ children }) => {
    return signInWithEmailAndPassword(auth, email, password)
   }
 
+  const logOutUser= ()=>{
+  return  signOut(auth)
+    
+  }
+
   // Ovserber sideEffect
   useEffect(() => {
     
-    const unSubcribe =  onAuthStateChanged(auth, (user) => {
-      if (user) {
-        setUser(user);
-        
-        
-      }
+    const unSubcribe =  onAuthStateChanged(auth, (currentUser) => {
+  
+        setUser(currentUser);
+    
     });
     return (()=>{
       unSubcribe()
     })
-  }, []);
+  }, [reload]);
 
-
+const UserUpdateProfile =(name,image)=>{
+  return updateProfile(auth.currentUser, {
+    displayName: name, photoURL: image
+  })
+}
   const authInfo = {
     createUser,
     loginUser,
-    user
+    user,
+    logOutUser,
+    UserUpdateProfile,
+    setReload
   };
 
   return <AuthContex.Provider value={authInfo}>

@@ -2,9 +2,9 @@ import { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { AuthContex } from "../FireBaseProvider/FireBaseProvider";
 
-
 const Nav = () => {
-  const {user} = useContext(AuthContex)
+  const { user, logOutUser } = useContext(AuthContex);
+  const {photoURL} = user || {}
   const Links = (
     <>
       <li>
@@ -16,9 +16,16 @@ const Nav = () => {
       <li>
         <NavLink to="/userProfile">user profile</NavLink>
       </li>
-    
     </>
   );
+
+  const handleLogOut = () => {
+    logOutUser().then((result) => {
+      console.log(result, "log out sussecfull").catch((error) => {
+        console.log(error);
+      });
+    });
+  };
   return (
     <div className="navbar bg-base-100 container  mx-auto font-poppins">
       <div className="navbar-start">
@@ -69,23 +76,29 @@ const Nav = () => {
         <ul className="menu menu-horizontal px-1 font-medium">{Links}</ul>
       </div>
       <div className="navbar-end">
+
+        {user &&  <div className="w-10 mr-5 rounded-full ">
+          <img className="border-2 border-gray-500 w-10 h-10 rounded-full" src={photoURL || 'https://cdn-icons-png.flaticon.com/128/2202/2202112.png'} />
+        </div>}
+
         <Link to="/login" className="relative inline-block text-lg group">
           <span className="relative z-10 block px-5 py-3 overflow-hidden font-medium leading-tight text-gray-800 transition-colors duration-300 ease-out border-2 border-gray-900 rounded-lg group-hover:text-white">
             <span className="absolute inset-0 w-full h-full px-5 py-3 rounded-lg bg-gray-50"></span>
             <span className="absolute left-0 w-48 h-48 -ml-2 transition-all duration-300 origin-top-right -rotate-90 -translate-x-full translate-y-12 bg-gray-900 group-hover:-rotate-180 ease"></span>
-            <span className="relative">LOGIN</span>
+            {user ? (
+              <span onClick={handleLogOut} className="relative">
+                LogOut
+              </span>
+            ) : (
+              <span className="relative">LOGIN</span>
+            )}
           </span>
-           
+
           <span
-          
             className="absolute bottom-0 right-0 w-full h-12 -mb-1 -mr-1 transition-all duration-200 ease-linear bg-gray-900 rounded-lg group-hover:mb-0 group-hover:mr-0"
             data-rounded="rounded-lg"
           ></span>
-          
         </Link>
-        {
-              user && <p>achi</p>
-            }
       </div>
     </div>
   );

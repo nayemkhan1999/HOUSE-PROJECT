@@ -121,9 +121,9 @@ const AllCard = ({ card }) => {
         <NavLink to={`/details/${id}`}>
           <a
             href="#_"
-            className="relative inline-flex items-center justify-center p-4 px-6 py-3 overflow-hidden font-medium text-indigo-600 transition duration-400 ease-out border-2 border-purple-500 rounded-full shadow-md group ml-24 mt-4 mb-5"
+            className="relative inline-flex items-center justify-center p-4 px-6 py-3 overflow-hidden font-medium text-indigo-600 transition duration-400 ease-out border-2 border-[#ff9e4f] rounded-full shadow-md group ml-24 mt-4 mb-5"
           >
-            <span className="absolute inset-0 flex items-center justify-center w-full h-full text-white duration-300 -translate-x-full bg-purple-500 group-hover:translate-x-0 ease">
+            <span className="absolute inset-0 flex items-center justify-center w-full h-full text-white duration-300 -translate-x-full bg-[#ff9e4f]  group-hover:translate-x-0 ease">
               <svg
                 className="w-6 h-6"
                 fill="none"
