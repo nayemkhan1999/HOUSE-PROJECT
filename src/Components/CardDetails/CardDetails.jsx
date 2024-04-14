@@ -50,7 +50,7 @@ const CardDetails = () => {
                   className="radio radio-accent "
                   checked
                 />
-                <p className="opacity-70 font-bold text-lg">
+                <p className="opacity-90 font-bold text-lg">
                   Professional and efficient project delivery
                 </p>
               </div>
@@ -61,7 +61,7 @@ const CardDetails = () => {
                   className="radio radio-accent "
                   checked
                 />
-                <p className="opacity-70 font-bold text-lg">{quality}</p>
+                <p className="opacity-90 font-bold text-lg">{quality}</p>
               </div>
               <div className="flex gap-2">
                 <input
@@ -70,7 +70,7 @@ const CardDetails = () => {
                   className="radio radio-accent "
                   checked
                 />
-                <p className="opacity-70 flex gap-2">
+                <p className="opacity-90 flex gap-2">
                   <span className="font-bold text-2xl">{house_name}</span>
                   <svg
                     xmlns="http://www.w3.org/2000/svg"

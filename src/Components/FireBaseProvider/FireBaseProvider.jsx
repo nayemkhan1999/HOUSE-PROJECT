@@ -1,7 +1,9 @@
 import {
+  GithubAuthProvider,
+  GoogleAuthProvider,
   createUserWithEmailAndPassword,
   onAuthStateChanged,
-  signInWithEmailAndPassword, signOut,
+  signInWithEmailAndPassword, signInWithPopup, signOut,
   updateProfile
 } from "firebase/auth";
 import { createContext, useEffect, useState } from "react";
@@ -14,7 +16,9 @@ const FireBaseProvider = ({ children }) => {
   const [reload,setReload] = useState(false)
   const [user, setUser] = useState(null);
   
-
+// Social Auth Provider
+const googleProvider = new GoogleAuthProvider();
+const gitHubProvider = new GithubAuthProvider();
 
   // Create User Function
   const createUser = (email, password) => {
@@ -25,11 +29,22 @@ const FireBaseProvider = ({ children }) => {
   const loginUser = (email,password)=>{
    return signInWithEmailAndPassword(auth, email, password)
   }
-
+// Log Out User
   const logOutUser= ()=>{
   return  signOut(auth)
     
   }
+
+  // Google Login
+  const googleLogin = () => {
+    return signInWithPopup(auth, googleProvider)
+  }
+
+  // GitHub Login
+  const GitHubLogin = () => {
+    return signInWithPopup(auth, gitHubProvider)
+  }
+
 
   // Ovserber sideEffect
   useEffect(() => {
@@ -55,7 +70,9 @@ const UserUpdateProfile =(name,image)=>{
     user,
     logOutUser,
     UserUpdateProfile,
-    setReload
+    setReload,
+    googleLogin,
+    GitHubLogin
   };
 
   return <AuthContex.Provider value={authInfo}>

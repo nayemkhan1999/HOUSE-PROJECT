@@ -9,7 +9,7 @@ import "../../login.css";
 import { AuthContex } from "../FireBaseProvider/FireBaseProvider";
 
 const Login = () => {
-  const { loginUser } = useContext(AuthContex);
+  const { loginUser,googleLogin,GitHubLogin } = useContext(AuthContex);
   const [showpassword, setShowPassword] = useState(false);
   const location = useLocation();
   const navigate = useNavigate();
@@ -30,7 +30,20 @@ const Login = () => {
       .catch((error) => {
         console.log(error);
       });
+
   };
+
+
+  // Social Auth provider navigate 
+  const handleSocialLogin = socialProvider =>{
+    socialProvider()
+    .then(result =>{
+      if(result.user){
+        navigate(location?.state || "/")
+      }
+    })
+  }
+
   return (
     <div className="container mx-auto img">
       <div className="hero ">
@@ -93,11 +106,21 @@ const Login = () => {
               <div className="flex flex-col w-full">
                 <div className="divider divider-neutral">Or Login With</div>
               </div>
-              <div className="flex text-center items-center mx-auto gap-2 text-4xl">
+              <div className="flex items-center justify-between gap-2">
                 {/* Another LInks */}
 
-                <FcGoogle />
-                <FaGithubSquare />
+              
+                <button onClick={()=> handleSocialLogin(googleLogin)} className="btn btn-active text-sm opacity-90 text-black font-medium">continue with
+              <span className="text-3xl"><FcGoogle /></span>
+                </button>
+            
+
+               
+               <button onClick={()=> handleSocialLogin(GitHubLogin)} className="btn  btn-active text-sm opacity-90 text-black font-medium">continue with
+               <span className="text-3xl"><FaGithubSquare /></span>
+               </button>
+             
+                
               </div>
 
               <div className="text-center">
