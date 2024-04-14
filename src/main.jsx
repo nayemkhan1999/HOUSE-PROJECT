@@ -3,7 +3,9 @@ import ReactDOM from "react-dom/client";
 import "./index.css";
 
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import About from "./Components/About/About";
 import CardDetails from "./Components/CardDetails/CardDetails";
+import ContactUs from "./Components/ContactUs/ContactUs";
 import Error from "./Components/Error/Error";
 import FireBaseProvider from "./Components/FireBaseProvider/FireBaseProvider";
 import Home from "./Components/Home/Home";
@@ -44,6 +46,14 @@ const router = createBrowserRouter([
         path: "/details/:id",
         element:<PrivetRoute><CardDetails/></PrivetRoute>
       },
+      {
+        path: "/contactUs",
+        element: <ContactUs/>
+      },
+      {
+        path: "/about",
+        element: <About/>
+      }
     ],
   },
 ]);
