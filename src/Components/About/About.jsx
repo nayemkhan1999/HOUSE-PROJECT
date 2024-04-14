@@ -1,3 +1,8 @@
+import {
+  TiSocialInstagram,
+  TiSocialSkype,
+  TiSocialTwitter,
+} from "react-icons/ti";
 import imgAbout from "/src/images/about.jpg";
 const About = () => {
   return (
@@ -8,28 +13,94 @@ const About = () => {
           src={imgAbout}
           alt=""
         />
-        <div className="absolute top-[405px] left-[450px] rounded-lg opacity-70 text-center pt-16 bg-teal-500 text-white text-4xl font-bold w-[500px] h-52">
+        <div className="absolute top-[405px] left-[450px] rounded-lg opacity-70 text-center pt-16 bg-teal-500 text-white text-4xl font-black w-[500px] h-52">
           <span>About Us</span>
         </div>
       </div>
 
       <div>
-        <h1 className="text-center text-4xl font-semibold">Meet The Exparts Behind The <br /> Energy Revolation</h1>
+        <h1 className="text-center text-4xl font-semibold mt-10 opacity-70">
+          Meet The Exparts Behind The <br /> Energy Revolation
+        </h1>
 
-        <div className="card card-compact w-96 bg-base-100 shadow-xl">
-          <figure>
-            <img
-              src="https://daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg"
-              alt="Shoes"
-            />
-          </figure>
-          <div className="card-body">
-            <h2 className="card-title">Shoes!</h2>
-            <p>If a dog chews shoes whose shoes does he choose?</p>
-            <div className="card-actions justify-end">
-              <button className="btn btn-primary">Buy Now</button>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mx-36 mt-8">
+          <div className="card card-compact w-80 bg-base-100 shadow-xl">
+            <figure>
+              <img
+                src="https://img.freepik.com/free-photo/communication-work_1098-14852.jpg?t=st=1713105178~exp=1713108778~hmac=ce008f8b2413eb2a4876ea752ce9a596ed696d890dccac6fa418d3ac8b71c1f1&w=740"
+                alt="Shoes"
+              />
+            </figure>
+            <div className="card-body">
+              <div className="flex items-center justify-between">
+                <h2 className="card-title text-xl font-bold">Jhon Deo</h2>
+                <h2 className="text-teal-400 text-xs">CEO and Founder</h2>
+              </div>
+              <p>
+                Although historically construction has been a male-dominated
+                industry, more employers are hiring women into these roles. This
+                is in part due to the high demand for labor. According to a
+                model developed by?
+              </p>
+              <div className="flex items-center justify-start text-4xl text-teal-600 gap-4">
+                <TiSocialTwitter />
+                <TiSocialInstagram />
+                <TiSocialSkype />
+              </div>
             </div>
           </div>
+          <div className="card card-compact w-80 bg-base-100 shadow-xl">
+            <figure>
+              <img
+                src="https://img.freepik.com/free-photo/civil-engineer-construction-worker-manager-holding-digital-tablet-blueprints-talking-planing-about-construction-site-cooperation-teamwork-concept_640221-298.jpg?t=st=1713105191~exp=1713108791~hmac=36c84fc3e92d13530f40c8c31c11aae2117679564d5c0e51af9d7908049b83a9&w=740"
+                alt="Shoes"
+              />
+            </figure>
+            <div className="card-body">
+              <div className="flex items-center justify-between">
+                <h2 className="card-title text-xl font-bold">Jhon Smith</h2>
+                <h2 className="text-teal-400 text-xs">Derector of Operation</h2>
+              </div>
+              <p>
+                Although historically construction has been a male-dominated
+                industry, more employers are hiring women into these roles. This
+                is in part due to the high demand for labor. According to a
+                model developed by?
+              </p>
+              <div className="flex items-center justify-start text-4xl text-teal-600 gap-4">
+                <TiSocialTwitter />
+                <TiSocialInstagram />
+                <TiSocialSkype />
+              </div>
+            </div>
+          </div>
+          <div className="card card-compact w-80 bg-base-100 shadow-xl">
+            <figure>
+              <img
+                src="https://img.freepik.com/free-photo/working-hard-building-man-construction-worker_1122-1849.jpg?t=st=1713105093~exp=1713108693~hmac=2125907f2ea2215e3a1d8d137bca82077ed8ca1bb00e57bfb09ca6114d0a9185&w=740"
+                alt="Shoes"
+              />
+            </figure>
+            <div className="card-body">
+              <div className="flex items-center justify-between">
+                <h2 className="card-title text-xl font-bold">Bob jhonson</h2>
+                <h2 className="text-teal-400 text-xs">Lead Engineer</h2>
+              </div>
+              <p>
+                Although historically construction has been a male-dominated
+                industry, more employers are hiring women into these roles. This
+                is in part due to the high demand for labor. According to a
+                model developed by?
+              </p>
+              <div className="flex items-center justify-start text-4xl text-teal-600 gap-4">
+                <TiSocialTwitter />
+                <TiSocialInstagram />
+                <TiSocialSkype />
+              </div>
+            </div>
+          </div>
+         
+          
         </div>
       </div>
     </div>

@@ -95,7 +95,7 @@ const Nav = () => {
       </div>
 
        <div className={`${showUser ? "flex" : "hidden"}`}>
-       <div className="absolute bg-red-400 top-[40px] right-[220px] p-4 rounded-lg text-white">
+       <div className="absolute bg-teal-700 top-[40px] right-[220px] p-4 rounded-lg text-white">
           <h1 className="textxl">{user?.displayName  || "not found"}</h1>
           <h1 className="textxl">{user?.email || "not found"}</h1>
         </div>
