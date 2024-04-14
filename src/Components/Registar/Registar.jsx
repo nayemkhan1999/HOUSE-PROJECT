@@ -7,9 +7,8 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import "../../login.css";
 import { AuthContex } from "../FireBaseProvider/FireBaseProvider";
 
-
 const Registar = () => {
-  const { createUser,UserUpdateProfile } = useContext(AuthContex);
+  const { createUser, UserUpdateProfile } = useContext(AuthContex);
   const [error, setError] = useState("");
   const [showpassword, setShowPassword] = useState(false);
   const location = useLocation();
@@ -22,42 +21,39 @@ const Registar = () => {
   } = useForm();
 
   const onSubmit = (data) => {
-    const { email, password,FullName,photoURL } = data;
-    
-    createUser(email, password)
-    .then((result) => {
-      console.log(result.user);
-      UserUpdateProfile(FullName,photoURL)
-      .then(result)
-      .catch((error)=>{
-        console.log(error);
-       
-      })
-      navigate(location?.state ? location.state : "/");
-    })
-    .catch((error) => {
-      console.log(error);
-    });
-    
-    
+    const { email, password, name, photoURL } = data;
+    console.log(email, password, name, photoURL);
+
+
     if (!/[A-Z]/.test(password)) {
       return toast.error(
-        "You must have an Uppercase letter!"
-        
+        "you must have an one uppercase letter!"
       );
-      
     }
     if (!/[a-z]/.test(password)) {
       return toast.error(
-        "You must have an Lowercase letter!"
+        "you must have an one uppercase letter!"
       );
     }
-    if (password.length < 6) {
-      return toast.error(
-        "Password must be 6 charctors!"
-      );
-    }
+
+  if (password.length < 6) {
+    return toast.error("Password must be 6 charctors!");
+  }
+    createUser(email, password)
+      .then((result) => {
+        if (result.user) {
+          navigate(location?.state || "/");
+        }
+        UserUpdateProfile(name, photoURL).then(() => {
+          navigate(location?.state || "/");
+        });
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+
     
+
     toast.success("Registar Succesful");
   };
 
@@ -70,26 +66,29 @@ const Registar = () => {
             <form onSubmit={handleSubmit(onSubmit)} className="card-body">
               <div className="form-control">
                 <label className="label">
-                  <span className="">Full Name</span>
+                  <span className="">Email</span>
                 </label>
                 <input
-                  type="FullName"
-                  placeholder="FullName"
+                  type="text"
+                  name="name"
+                  placeholder="name"
                   className="input input-bordered  text-black font-medium"
-                  {...register("FullName", { required: true })}
+                  {...register("name", { required: true })}
                 />
-                {errors.FullName && (
-                  <span className="text-red-600 font-medium text-sm opacity-70">
+                {errors.name && (
+                  <span className="text-red-600 font-medium opacity-70 text-sm">
                     This field is required
                   </span>
                 )}
               </div>
+
               <div className="form-control">
                 <label className="label">
                   <span className="">Email</span>
                 </label>
                 <input
                   type="email"
+                  name="email"
                   placeholder="email"
                   className="input input-bordered  text-black font-medium"
                   {...register("email", { required: true })}
@@ -106,9 +105,10 @@ const Registar = () => {
                 </label>
                 <input
                   type="photoURL"
+                  name="photoURL"
                   placeholder="photoURL"
                   className="input input-bordered  text-black font-medium"
-                  {...register("photoURL", { required: false })}
+                  {...register("photoURL", { required: true })}
                 />
               </div>
               <div className="form-control">
@@ -117,6 +117,7 @@ const Registar = () => {
                 </label>
                 <input
                   type={showpassword ? "text" : "password"}
+                  name="password"
                   placeholder="password"
                   className="input input-bordered  text-black font-medium relative"
                   {...register("password", { required: true })}
@@ -152,7 +153,7 @@ const Registar = () => {
             </form>
           </div>
         </div>
-        <Toaster/>
+        <Toaster />
       </div>
     </div>
   );

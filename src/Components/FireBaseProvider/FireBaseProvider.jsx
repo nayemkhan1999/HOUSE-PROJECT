@@ -15,18 +15,24 @@ export const AuthContex = createContext(null);
 const FireBaseProvider = ({ children }) => {
   const [reload,setReload] = useState(false)
   const [user, setUser] = useState(null);
+
+  const [loading ,setLoading] = useState(true)
+
+  
   
 // Social Auth Provider
 const googleProvider = new GoogleAuthProvider();
 const gitHubProvider = new GithubAuthProvider();
 
-  // Create User Function
+  // Create User 
   const createUser = (email, password) => {
+    setLoading(true)
     return createUserWithEmailAndPassword(auth, email, password);
   };
 
-  // Login User Function
+  // Sign in / Login User 
   const loginUser = (email,password)=>{
+    setLoading(true)
    return signInWithEmailAndPassword(auth, email, password)
   }
 // Log Out User
@@ -37,11 +43,13 @@ const gitHubProvider = new GithubAuthProvider();
 
   // Google Login
   const googleLogin = () => {
+    setLoading(true)
     return signInWithPopup(auth, googleProvider)
   }
 
   // GitHub Login
   const GitHubLogin = () => {
+    setLoading(true)
     return signInWithPopup(auth, gitHubProvider)
   }
 
@@ -50,8 +58,8 @@ const gitHubProvider = new GithubAuthProvider();
   useEffect(() => {
     
     const unSubcribe =  onAuthStateChanged(auth, (currentUser) => {
-  
         setUser(currentUser);
+        setLoading(false)
     
     });
     return (()=>{
@@ -61,7 +69,8 @@ const gitHubProvider = new GithubAuthProvider();
 
 const UserUpdateProfile =(name,image)=>{
   return updateProfile(auth.currentUser, {
-    displayName: name, photoURL: image
+    displayName: name,
+     photoURL: image
   })
 }
   const authInfo = {
@@ -72,7 +81,8 @@ const UserUpdateProfile =(name,image)=>{
     UserUpdateProfile,
     setReload,
     googleLogin,
-    GitHubLogin
+    GitHubLogin,
+    loading
   };
 
   return <AuthContex.Provider value={authInfo}>

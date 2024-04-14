@@ -11,8 +11,8 @@ import Login from "./Components/Login/Login";
 import PrivetRoute from "./Components/PrivetRoute/PrivetRoute";
 import Registar from "./Components/Registar/Registar";
 import Root from "./Components/Root/Root";
-import UpdateProfile from "./Components/UpdateProfile/UpdateProfile";
 import UserProfille from "./Components/UserProfile/UserProfille";
+import UserUpdate from "./Components/UserUpdate/UserUpdate";
 
 const router = createBrowserRouter([
   {
@@ -26,7 +26,7 @@ const router = createBrowserRouter([
       },
       {
         path: '/updateProfile',
-        element:<PrivetRoute> <UpdateProfile/></PrivetRoute>
+        element:<PrivetRoute><UserUpdate/></PrivetRoute>
       },
       {
         path: "/userProfile",

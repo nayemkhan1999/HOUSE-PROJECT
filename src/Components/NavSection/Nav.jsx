@@ -1,10 +1,14 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { AuthContex } from "../FireBaseProvider/FireBaseProvider";
 
 const Nav = () => {
   const { user, logOutUser } = useContext(AuthContex);
-  const {photoURL} = user || {}
+  console.log(user);
+
+  const [showUser,setShowUser] = useState(false)
+  const {photoURL,displayName} = user || {}
+
   const Links = (
     <>
       <li>
@@ -77,9 +81,19 @@ const Nav = () => {
       </div>
       <div className="navbar-end">
 
-        {user &&  <div className="w-10 mr-5 rounded-full ">
-          <img className="border-2 border-gray-500 w-10 h-10 rounded-full" src={photoURL || 'https://cdn-icons-png.flaticon.com/128/2202/2202112.png'} />
+      <div className="relative">
+
+      {user &&  <div onMouseEnter={()=> setShowUser(true)} onMouseLeave={()=> setShowUser(false)}  className="w-10 mr-5 rounded-full ">
+          <img className="border-2 border-gray-500 w-10 h-10 rounded-full" src={user ?.photoURL || 'https://cdn-icons-png.flaticon.com/128/2202/2202112.png'} />
         </div>}
+      </div>
+
+       <div className={`${showUser ? "flex" : "hidden"}`}>
+       <div className="absolute bg-red-400 top-[40px] right-[220px] p-4 rounded-lg text-white">
+          <h1 className="textxl">{user?.displayName  || "not found"}</h1>
+          <h1 className="textxl">{user?.email || "not found"}</h1>
+        </div>
+       </div>
 
         <Link to="/login" className="relative inline-block text-lg group">
           <span className="relative z-10 block px-5 py-3 overflow-hidden font-medium leading-tight text-gray-800 transition-colors duration-300 ease-out border-2 border-gray-900 rounded-lg group-hover:text-white">
