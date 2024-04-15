@@ -1,4 +1,7 @@
+import AOS from "aos";
+import "aos/dist/aos.css";
 import { NavLink } from "react-router-dom";
+AOS.init();
 
 const AllCard = ({ card }) => {
   const {
@@ -6,7 +9,6 @@ const AllCard = ({ card }) => {
     id,
     house_name,
     price,
-    status,
     area,
     location,
     image,
@@ -18,21 +20,21 @@ const AllCard = ({ card }) => {
 
   return (
     <div className="container mx-auto font-poppins">
-      <div className="card card-compact h-[80vh] bg-base-100 shadow-xl mt-10">
+      <div  className="card card-compact h-[80vh] bg-base-100 shadow-xl mt-10">
         <figure>
-          <img src={image} alt="Shoes" />
+          <img data-aos="zoom-in" data-aos-duration='1000' src={image} alt="Shoes" />
         </figure>
         <div className=" flex items-center justify-between mx-4 mt-5">
-          <h2 className="card-title font-bold text-2xl">{house_name}</h2>
-          <p className="card-title text-xl font-semibold ">{price}</p>
+          <h2 data-aos="fade-right" data-aos-delay='1500' className="card-title font-bold text-2xl">{house_name}</h2>
+          <p  data-aos="fade-left" data-aos-delay='1000' className="card-title text-xl font-semibold ">{price}</p>
         </div>
-        <p className="mx-4 text-sm font-semibold opacity-90">{title}</p>
+        <p  data-aos="fade-right" data-aos-delay='1600' className="mx-4 text-sm font-semibold opacity-90">{title}</p>
         <div className="divider mx-14"></div>
-        <div className="flex items-center gap-16 mx-4 font-semibold">
+        <div data-aos="fade-right" data-aos-delay='1700'  className="flex items-center gap-16 mx-4 font-semibold">
           <p>{beds}</p>
           <p>{baths}</p>
         </div>
-        <div className="flex items-center gap-1 mx-4 text-sm font-semibold">
+        <div  data-aos="fade-right" data-aos-delay='1800' className="flex items-center gap-1 mx-4 text-sm font-semibold">
           <p>{area}</p>
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -54,71 +56,71 @@ const AllCard = ({ card }) => {
             />
           </svg>
 
-          <p className="text-gray-700 opacity-80">{location}</p>
+          <p data-aos="fade-right" data-aos-delay='1900' className="text-gray-700 opacity-80">{location}</p>
         </div>
         <div className="divider mx-14"></div>
-        <div className="mx-4 flex items-center gap-2">
+        <div  className="mx-4 flex items-center gap-2">
           <div className="rating rating-sm rating-half">
             <input type="radio" name="rating-10" className="rating-hidden" />
-            <input
+            <input data-aos="fade-up" data-aos-delay="2000"
               type="radio"
               name="rating-10"
               className=" bg-orange-400 mask mask-star-2 mask-half-1"
             />
-            <input
+            <input data-aos="fade-up" data-aos-delay="2100"
               type="radio"
               name="rating-10"
               className=" bg-orange-400 mask mask-star-2 mask-half-2"
               checked
             />
-            <input
+            <input data-aos="fade-up" data-aos-delay="2200"
               type="radio"
               name="rating-10"
               className=" bg-orange-400 mask mask-star-2 mask-half-1"
             />
-            <input
+            <input data-aos="fade-up" data-aos-delay="2300"
               type="radio"
               name="rating-10"
               className=" bg-orange-400 mask mask-star-2 mask-half-2"
             />
-            <input
+            <input data-aos="fade-up" data-aos-delay="2400"
               type="radio"
               name="rating-10"
               className=" bg-orange-400 mask mask-star-2 mask-half-1"
             />
-            <input
+            <input data-aos="fade-up" data-aos-delay="2500"
               type="radio"
               name="rating-10"
               className=" bg-orange-400 mask mask-star-2 mask-half-2"
             />
-            <input
+            <input data-aos="fade-up" data-aos-delay="2600"
               type="radio"
               name="rating-10"
               className=" bg-orange-400 mask mask-star-2 mask-half-1"
               checked
             />
-            <input
+            <input data-aos="fade-up" data-aos-delay="2700"
               type="radio"
               name="rating-10"
               className=" bg-orange-400 mask mask-star-2 mask-half-2"
             />
-            <input
+            <input data-aos="fade-up" data-aos-delay="2800"
               type="radio"
               name="rating-10"
               className=" bg-orange-400 mask mask-star-2 mask-half-1"
             />
-            <input
+            <input data-aos="fade-up" data-aos-delay="2900"
               type="radio"
               name="rating-10"
               className=" bg-orange-400 mask mask-star-2 mask-half-2"
             />
           </div>
-          <p className="font-bold ">{rating}</p>
-          <p className="ml-16 opacity-70 font-medium text-gray-600">
+          <p data-aos="fade-up" data-aos-delay="2600" className="font-bold ">{rating}</p>
+          <p data-aos="fade-up" data-aos-delay="2800" className="ml-16 opacity-70 font-medium text-gray-600">
             {reviews}
           </p>
         </div>
-        <NavLink to={`/details/${id}`}>
+        <NavLink data-aos="fade-up"data-aos-delay="3000"  to={`/details/${id}`}>
           <a
             href="#_"
             className="relative inline-flex items-center justify-center p-4 px-6 py-3 overflow-hidden font-medium text-indigo-600 transition duration-400 ease-out border-2 border-[#ff9e4f] rounded-full shadow-md group ml-24 mt-4 mb-5"

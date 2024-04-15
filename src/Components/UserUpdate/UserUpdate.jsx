@@ -4,11 +4,18 @@ import { AuthContex } from "../FireBaseProvider/FireBaseProvider";
 
 const UserUpdate = () => {
   const { UserUpdateProfile, user } = useContext(AuthContex);
-  const { handleSubmit } = useForm();
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
+
 
   const { email, displayName, photoURL } = user || {};
+  console.log(displayName);
 
   const onSubmit = (data) => {
+    console.log(data);
     const name = data.name;
     const photo = data.photoURL;
     console.log(name, photo);
@@ -21,21 +28,21 @@ const UserUpdate = () => {
       });
   };
   return (
-    <div className="container  mx-auto font-poppins mt-8  flex items-center justify-evenly border">
-      <div>
-        <div className="flex flex-col justify-center max-w-xs p-6 shadow-md rounded-xl sm:px-12 dark:bg-gray-50 dark:text-gray-800">
+    <div className="container  mx-auto font-poppins mt-20  flex items-center justify-evenly ">
+      <div data-aos="fade-right"data-aos-duration='1000'>
+        <div className="flex flex-col justify-center max-w-xs p-6 shadow-xl border rounded-xl sm:px-12 dark:bg-gray-50 dark:text-gray-800">
           <img
-            src="https://source.unsplash.com/150x150/?portrait?3"
+            src={photoURL}
             alt=""
             className="w-32 h-32 mx-auto rounded-full dark:bg-gray-500 aspect-square"
           />
           <div className="space-y-4 text-center divide-y dark:divide-gray-300">
             <div className="my-2 space-y-1">
               <h2 className="text-xl font-semibold sm:text-2xl">
-                Leroy Jenkins
+                {displayName}
               </h2>
               <p className="px-5 text-xs sm:text-base dark:text-gray-600">
-                Full-stack developer
+              {email}
               </p>
             </div>
             <div className="flex justify-center pt-2 space-x-4 align-center">
@@ -99,19 +106,21 @@ const UserUpdate = () => {
           </div>
         </div>
       </div>
-     <div>
-     <form onSubmit={handleSubmit(onSubmit)}>
+     <div data-aos="fade-left"data-aos-duration='1000'>
+     <form onSubmit={handleSubmit(onSubmit)} 
+     className="border p-4 rounded-xl">
         <label className="lg:text-lg md:text-base text-sm font-semibold ">
           New name
         </label>
         <br />
 
         <input
-          type="name"
+          type="text"
           name="name"
           className="bg-[#f3f3f3] p-3 w-full my-4 text-sm lg:text-base rounded-sm outline-none text-[#9f9f9f]"
           placeholder="Enter  your name"
           required
+          defaultValue="" {...register("name")}
         />
 
         <label className="lg:text-lg md:text-base text-sm font-semibold ">
@@ -125,10 +134,11 @@ const UserUpdate = () => {
           className="bg-[#f3f3f3] p-3 w-full my-4 text-sm lg:text-base rounded-sm outline-none text-[#9f9f9f]"
           placeholder="Enter  your photo url"
           required
+        {...register("photoURL", { required: true })} 
         />
 
         <br />
-        <button className="bg-[#1a56db] md:text-base text-sm lg:text-xl rounded-md p-2 w-full my-4 font-semibold text-white">
+        <button className="bg-[#3eaabd] md:text-base text-sm lg:text-xl rounded-md p-2 w-full my-4 font-semibold text-white">
           Save Change
         </button>
       </form>

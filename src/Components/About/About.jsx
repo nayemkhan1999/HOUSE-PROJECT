@@ -8,7 +8,9 @@ const About = () => {
   return (
     <div className="container  mx-auto font-poppins">
       <div className="mt-5 rounded-lg">
-        <img
+        <img  data-aos="fade-down"
+     data-aos-easing="linear"
+     data-aos-duration="1500"
           className="opacity-90 rounded-lg relative "
           src={imgAbout}
           alt=""
@@ -19,12 +21,12 @@ const About = () => {
       </div>
 
       <div>
-        <h1 className="text-center text-4xl font-semibold mt-10 opacity-70">
+        <h1 data-aos="zoom-in-up"data-aos-delay='1000' className="text-center text-4xl font-semibold mt-10 opacity-70">
           Meet The Exparts Behind The <br /> Energy Revolation
         </h1>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mx-36 mt-8">
-          <div className="card card-compact w-80 bg-base-100 shadow-xl">
+          <div data-aos="fade-down"data-aos-duration='2000' className="card card-compact w-80 bg-base-100 shadow-xl">
             <figure>
               <img
                 src="https://img.freepik.com/free-photo/communication-work_1098-14852.jpg?t=st=1713105178~exp=1713108778~hmac=ce008f8b2413eb2a4876ea752ce9a596ed696d890dccac6fa418d3ac8b71c1f1&w=740"
@@ -49,7 +51,7 @@ const About = () => {
               </div>
             </div>
           </div>
-          <div className="card card-compact w-80 bg-base-100 shadow-xl">
+          <div data-aos="fade-up"data-aos-duration='2400' className="card card-compact w-80 bg-base-100 shadow-xl">
             <figure>
               <img
                 src="https://img.freepik.com/free-photo/civil-engineer-construction-worker-manager-holding-digital-tablet-blueprints-talking-planing-about-construction-site-cooperation-teamwork-concept_640221-298.jpg?t=st=1713105191~exp=1713108791~hmac=36c84fc3e92d13530f40c8c31c11aae2117679564d5c0e51af9d7908049b83a9&w=740"
@@ -74,7 +76,7 @@ const About = () => {
               </div>
             </div>
           </div>
-          <div className="card card-compact w-80 bg-base-100 shadow-xl">
+          <div data-aos="fade-down"data-aos-duration='2800' className="card card-compact w-80 bg-base-100 shadow-xl">
             <figure>
               <img
                 src="https://img.freepik.com/free-photo/working-hard-building-man-construction-worker_1122-1849.jpg?t=st=1713105093~exp=1713108693~hmac=2125907f2ea2215e3a1d8d137bca82077ed8ca1bb00e57bfb09ca6114d0a9185&w=740"
