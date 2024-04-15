@@ -8,7 +8,7 @@ const UserProfille = () => {
   return (
     <div className="container  mx-auto font-poppins mt-20">
       <div data-aos="fade-right" data-aos-duration="1000">
-        <div className="max-w-md border p-8 shadow-lg ml-[390px] rounded-lg sm:flex sm:space-x-6 dark:bg-gray-50 dark:text-gray-800">
+        <div className="max-w-lg border p-8 shadow-lg ml-[390px] rounded-lg sm:flex sm:space-x-6 dark:bg-gray-50 dark:text-gray-800">
           <div className="flex-shrink-0 w-full mb-6 h-52 sm:h-32 sm:w-32 sm:mb-0">
             <img
               src={photoURL}
@@ -37,7 +37,7 @@ const UserProfille = () => {
                   ></path>
                 </svg>
                 <span className="dark:text-gray-600">
-                 {email}
+                {`${user && email || "not found"}`}
                 </span>
               </span>
               <span className="flex items-center space-x-2">

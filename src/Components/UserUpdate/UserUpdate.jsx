@@ -30,7 +30,7 @@ const UserUpdate = () => {
   return (
     <div className="container  mx-auto font-poppins mt-20  flex items-center justify-evenly ">
       <div data-aos="fade-right"data-aos-duration='1000'>
-        <div className="flex flex-col justify-center max-w-xs p-6 shadow-xl border rounded-xl sm:px-12 dark:bg-gray-50 dark:text-gray-800">
+        <div className="flex flex-col justify-center w-auto p-6 shadow-xl border rounded-xl sm:px-12 dark:bg-gray-50 dark:text-gray-800">
           <img
             src={photoURL}
             alt=""
