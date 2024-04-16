@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet-async";
 import {
   TiSocialInstagram,
   TiSocialSkype,
@@ -7,6 +8,9 @@ import imgAbout from "/src/images/about.jpg";
 const About = () => {
   return (
     <div className="container  mx-auto font-poppins">
+       <Helmet>
+        <title>House | About</title>
+      </Helmet>
       <div className="mt-5 rounded-lg">
         <img  data-aos="fade-down"
      data-aos-easing="linear"
@@ -15,7 +19,7 @@ const About = () => {
           src={imgAbout}
           alt=""
         />
-        <div className="absolute top-[405px] left-[450px] rounded-lg opacity-70 text-center pt-16 bg-teal-500 text-white text-4xl font-black w-[500px] h-52">
+        <div className="absolute lg:top-[405px] top-[90px] lg:left-[450px] rounded-lg opacity-70 text-center lg:pt-16 pt-8 bg-teal-500 text-white lg:text-4xl font-black lg:w-[500px] lg:h-52">
           <span>About Us</span>
         </div>
       </div>
@@ -25,7 +29,7 @@ const About = () => {
           Meet The Exparts Behind The <br /> Energy Revolation
         </h1>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mx-36 mt-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 lg:mx-36 mt-8">
           <div data-aos="fade-down"data-aos-duration='2000' className="card card-compact w-80 bg-base-100 shadow-xl">
             <figure>
               <img

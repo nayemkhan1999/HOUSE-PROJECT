@@ -14,8 +14,8 @@ const Cards = () => {
 
   return (
     <div className="container mx-auto">
-      <div className="flex flex-col w-full">
-      <p className="font-poppins text-center text-4xl font-black mt-8 ">
+      <div data-aos="zoom-in-up"data-aos-duration='1000' className="flex flex-col lg:w-full md:full">
+      <p className="font-poppins text-center lg:text-4xl md:text-3xl text-xl font-black mt-8 ">
         Featured Properties
       </p>
         <div className="divider divider-neutral"> <svg

@@ -1,15 +1,19 @@
 import { useContext } from "react";
+import { Helmet } from "react-helmet-async";
 import { AuthContex } from "../FireBaseProvider/FireBaseProvider";
 
 const UserProfille = () => {
-  const {user} = useContext(AuthContex)
+  const { user } = useContext(AuthContex);
 
   const { email, displayName, photoURL } = user || {};
   return (
-    <div className="container  mx-auto font-poppins mt-20">
+    <div className="lg:container  mx-auto font-poppins mt-20">
+       <Helmet>
+        <title>House | UserProfile</title>
+      </Helmet>
       <div data-aos="fade-right" data-aos-duration="1000">
-        <div className="max-w-lg border p-8 shadow-lg ml-[390px] rounded-lg sm:flex sm:space-x-6 dark:bg-gray-50 dark:text-gray-800">
-          <div className="flex-shrink-0 w-full mb-6 h-52 sm:h-32 sm:w-32 sm:mb-0">
+        <div className="lg:max-w-lg border p-8 shadow-lg lg:ml-[390px] rounded-lg sm:flex sm:space-x-6 dark:bg-gray-50 dark:text-gray-800">
+          <div className="lg:flex-shrink-0 w-full mb-6 h-52 sm:h-32 sm:w-32 sm:mb-0">
             <img
               src={photoURL}
               alt=""
@@ -20,7 +24,7 @@ const UserProfille = () => {
             <div>
               <h2 className="text-2xl font-semibold">{displayName}</h2>
               <span className="text-sm dark:text-gray-600">
-                General manager
+                General Member
               </span>
             </div>
             <div className="space-y-1">
@@ -37,7 +41,7 @@ const UserProfille = () => {
                   ></path>
                 </svg>
                 <span className="dark:text-gray-600">
-                {`${user && email || "not found"}`}
+                  {`${(user && email) || "not found"}`}
                 </span>
               </span>
               <span className="flex items-center space-x-2">

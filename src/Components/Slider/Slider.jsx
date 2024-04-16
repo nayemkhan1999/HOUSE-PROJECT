@@ -5,7 +5,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 
 const Slider = () => {
   return (
-    <div className="container mx-auto">
+    <div className="lg:container md:container  mx-auto">
       <Swiper
         navigation={true}
         modules={[Navigation, Autoplay]}

@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
+import { NavLink, useParams } from "react-router-dom";
 const CardDetails = () => {
   const [hero, setHero] = useState([]);
   const { id } = useParams();
@@ -31,13 +32,16 @@ const CardDetails = () => {
   } = hero;
   return (
     <div className="container mx-auto font-poppins mt-6 ">
+       <Helmet>
+        <title>House | View Property</title>
+      </Helmet>
       <div className="hero min-h-screen bg-base-200 rounded-xl">
         <div className="hero-content flex-col lg:flex-row">
           <img
             data-aos="fade-right"
             data-aos-duration="1000"
             src={image}
-            className="max-w-2xl rounded-lg shadow-2xl"
+            className="lg:max-w-2xl  rounded-lg shadow-2xl"
           />
           <div>
             <div className="flex flex-col w-full">
@@ -196,13 +200,15 @@ const CardDetails = () => {
                 http://localhost:5174/
               </p>
             </div>
-            <button
-              data-aos="fade-down"
-              data-aos-duration="3000"
-              className="btn btn-active btn-accent text-white font-semibold mx-auto float-end mt-5 "
-            >
-              Buy Now
-            </button>
+            <NavLink to="/">
+              <button
+                data-aos="fade-down"
+                data-aos-duration="3000"
+                className="btn btn-active btn-accent text-white font-semibold mx-auto float-end mt-5 "
+              >
+                GO TO HOME
+              </button>
+            </NavLink>
           </div>
         </div>
       </div>

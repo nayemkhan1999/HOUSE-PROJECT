@@ -2,6 +2,8 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
 
+import { HelmetProvider } from "react-helmet-async";
+import { Toaster } from "react-hot-toast";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import About from "./Components/About/About";
 import CardDetails from "./Components/CardDetails/CardDetails";
@@ -61,7 +63,10 @@ const router = createBrowserRouter([
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <FireBaseProvider>
+      <HelmetProvider>
       <RouterProvider router={router} />
+      </HelmetProvider>
+      <Toaster/>
     </FireBaseProvider>
   </React.StrictMode>
 );

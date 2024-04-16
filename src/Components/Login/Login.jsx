@@ -1,9 +1,11 @@
 import { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
+import toast, { Toaster } from "react-hot-toast";
 import { FaGithubSquare } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 
+import { Helmet } from "react-helmet-async";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import "../../login.css";
 import { AuthContex } from "../FireBaseProvider/FireBaseProvider";
@@ -24,13 +26,13 @@ const Login = () => {
     const { email, password } = data;
     loginUser(email, password)
       .then((result) => {
+        toast.success("Login Succesful");
         console.log(result.user);
         navigate(location?.state ? location.state : "/");
       })
       .catch((error) => {
         console.log(error);
       });
-
   };
 
 
@@ -46,6 +48,9 @@ const Login = () => {
 
   return (
     <div className="container mx-auto img">
+       <Helmet>
+        <title>House | Login Page</title>
+      </Helmet>
       <div className="hero ">
         <div className="hero-content ">
           <div className="card shrink-0 w-96  text-white bg-[#555] shadow-xl opacity-70 z-10">
@@ -135,6 +140,7 @@ const Login = () => {
           </div>
         </div>
       </div>
+      <Toaster />
     </div>
   );
 };

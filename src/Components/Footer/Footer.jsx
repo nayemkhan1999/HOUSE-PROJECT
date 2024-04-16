@@ -1,6 +1,6 @@
 const Footer = () => {
   return (
-    <div className="w-full mt-20 font-poppins ">
+    <div className="lg:w-full mt-20 font-poppins ">
     
       <footer className="footer p-10 bg-black text-white">
         <svg
@@ -39,11 +39,11 @@ const Footer = () => {
         </nav>
         <form>
           <h6 className="footer-title">Newsletter</h6>
-          <fieldset className="form-control w-80">
+          <fieldset className="form-control lg:w-80">
             <label className="label">
               <span className=" text-white">Enter your email address</span>
             </label>
-            <div className="join">
+            <div className="join lg:flex md:flex hidden">
               <input
                 type="text"
                 placeholder="your-e-mail"

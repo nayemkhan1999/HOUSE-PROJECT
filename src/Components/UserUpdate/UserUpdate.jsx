@@ -1,4 +1,5 @@
 import { useContext } from "react";
+import { Helmet } from "react-helmet-async";
 import { useForm } from "react-hook-form";
 import { AuthContex } from "../FireBaseProvider/FireBaseProvider";
 
@@ -9,7 +10,6 @@ const UserUpdate = () => {
     handleSubmit,
     formState: { errors },
   } = useForm();
-
 
   const { email, displayName, photoURL } = user || {};
   console.log(displayName);
@@ -28,9 +28,12 @@ const UserUpdate = () => {
       });
   };
   return (
-    <div className="container  mx-auto font-poppins mt-20  flex items-center justify-evenly ">
-      <div data-aos="fade-right"data-aos-duration='1000'>
-        <div className="flex flex-col justify-center w-auto p-6 shadow-xl border rounded-xl sm:px-12 dark:bg-gray-50 dark:text-gray-800">
+    <div className="lg:container  mx-auto font-poppins mt-20 lg:flex items-center justify-evenly ">
+      <Helmet>
+        <title>House | UserUpdate</title>
+      </Helmet>
+      <div data-aos="fade-right" data-aos-duration="1000">
+        <div className="flex flex-col justify-center w-auto h-[320px] p-6 shadow-xl border rounded-xl sm:px-12 dark:bg-gray-50 dark:text-gray-800">
           <img
             src={photoURL}
             alt=""
@@ -42,7 +45,7 @@ const UserUpdate = () => {
                 {displayName}
               </h2>
               <p className="px-5 text-xs sm:text-base dark:text-gray-600">
-              {email}
+                {email}
               </p>
             </div>
             <div className="flex justify-center pt-2 space-x-4 align-center">
@@ -106,43 +109,46 @@ const UserUpdate = () => {
           </div>
         </div>
       </div>
-     <div data-aos="fade-left"data-aos-duration='1000'>
-     <form onSubmit={handleSubmit(onSubmit)} 
-     className="border p-4 rounded-xl">
-        <label className="lg:text-lg md:text-base text-sm font-semibold ">
-          New name
-        </label>
-        <br />
+      <div data-aos="fade-left" data-aos-duration="1000">
+        <form
+          onSubmit={handleSubmit(onSubmit)}
+          className="border p-4 rounded-xl"
+        >
+          <label className="lg:text-lg md:text-base text-sm font-semibold ">
+            New name
+          </label>
+          <br />
 
-        <input
-          type="text"
-          name="name"
-          className="bg-[#f3f3f3] p-3 w-full my-4 text-sm lg:text-base rounded-sm outline-none text-[#9f9f9f]"
-          placeholder="Enter  your name"
-          required
-          defaultValue="" {...register("name")}
-        />
+          <input
+            type="text"
+            name="name"
+            className="bg-[#f3f3f3] p-3 w-full my-4 text-sm lg:text-base rounded-sm outline-none text-[#9f9f9f]"
+            placeholder="Enter  your name"
+            required
+            defaultValue=""
+            {...register("name")}
+          />
 
-        <label className="lg:text-lg md:text-base text-sm font-semibold ">
-          New photo URL
-        </label>
-        <br />
+          <label className="lg:text-lg md:text-base text-sm font-semibold ">
+            New photo URL
+          </label>
+          <br />
 
-        <input
-          type="text"
-          name="photoURL"
-          className="bg-[#f3f3f3] p-3 w-full my-4 text-sm lg:text-base rounded-sm outline-none text-[#9f9f9f]"
-          placeholder="Enter  your photo url"
-          required
-        {...register("photoURL", { required: true })} 
-        />
+          <input
+            type="text"
+            name="photoURL"
+            className="bg-[#f3f3f3] p-3 w-full my-4 text-sm lg:text-base rounded-sm outline-none text-[#9f9f9f]"
+            placeholder="Enter  your photo url"
+            required
+            {...register("photoURL", { required: true })}
+          />
 
-        <br />
-        <button className="bg-[#3eaabd] md:text-base text-sm lg:text-xl rounded-md p-2 w-full my-4 font-semibold text-white">
-          Save Change
-        </button>
-      </form>
-     </div>
+          <br />
+          <button className="bg-[#3eaabd] md:text-base text-sm lg:text-xl rounded-md p-2 w-full my-4 font-semibold text-white">
+            Save Change
+          </button>
+        </form>
+      </div>
     </div>
   );
 };

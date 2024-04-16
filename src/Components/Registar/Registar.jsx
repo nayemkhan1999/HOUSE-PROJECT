@@ -1,6 +1,7 @@
 import { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
 
+import { Helmet } from "react-helmet-async";
 import toast, { Toaster } from "react-hot-toast";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { Link, useLocation, useNavigate } from "react-router-dom";
@@ -59,6 +60,9 @@ const Registar = () => {
 
   return (
     <div className="container mx-auto img">
+       <Helmet>
+        <title>House | Registar Page</title>
+      </Helmet>
       <div className="hero ">
         <div className="hero-content ">
           <div className="card shrink-0 w-96  text-white bg-[#555] shadow-xl opacity-70 z-10">
@@ -66,7 +70,7 @@ const Registar = () => {
             <form onSubmit={handleSubmit(onSubmit)} className="card-body">
               <div className="form-control">
                 <label className="label">
-                  <span className="">Email</span>
+                  <span className="">Name</span>
                 </label>
                 <input
                   type="text"

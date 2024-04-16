@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet-async";
 import { FaLocationDot, FaSquarePhone, FaTwitter } from "react-icons/fa6";
 import { GrInstagram } from "react-icons/gr";
 import { MdOutlineForwardToInbox } from "react-icons/md";
@@ -6,14 +7,17 @@ import img from "/src/images/contactUs.jpg";
 
 const ContactUs = () => {
   return (
-    <div className="container  mx-auto font-poppins">
+    <div className="lg:container  mx-auto font-poppins">
+         <Helmet>
+        <title>House | Contact Us</title>
+      </Helmet>
         <div className="mt-5 rounded-lg">
-        <img data-aos="fade-down" data-aos-duration='2000'  className="opacity-90 rounded-lg relative " src={img} alt="" />
-        <div className="absolute top-[90px] rounded-lg opacity-80 text-center pt-16 bg-black text-white text-4xl font-bold w-[500px] h-52">
+        <img data-aos="fade-down" data-aos-duration='2000'  className="opacity-90 rounded-lg  relative " src={img} alt="" />
+        <div className="absolute lg:top-[90px] top-[90px]  rounded-lg opacity-80 text-center lg:pt-16 md:pt-7 bg-black text-white lg:text-4xl text-xl font-bold lg:w-[500px] lg:h-52">
         <span >Contact Us</span>
         </div>
         </div>
-        <div className="flex items-center justify-evenly mx-20">
+        <div className="lg:flex items-center justify-evenly mx-20">
             <div className="mt-14">
                 <h1 data-aos="fade-right" data-aos-delay='1000'  className="text-4xl font-bold mb-2">Get In Touch</h1>
                 <p data-aos="fade-right" data-aos-delay='1500' className="opacity-60 text-base font-medium mb-2">Message me with an introduction, saying who you are and <br /> why you are reaching out to me. Have a real <br /> profile with lots of answers and a presence of </p>
@@ -38,7 +42,7 @@ const ContactUs = () => {
 
             </div>
            
-            <div data-aos="zoom-in" data-aos-duration='2000' className="bg-black w-80 h-auto text-white px-5 py-4 mt-20">
+            <div data-aos="zoom-in" data-aos-duration='2000' className="bg-black lg:w-80 w-50 h-auto text-white px-5 py-4 mt-20">
                 <h1 data-aos="fade-left" data-aos-delay='2200' className="text-xl mb-4">Send us message</h1>
                 <h1 data-aos="fade-left" data-aos-delay='2400' className="text-xs">your name</h1>
                 <div className="divider divider-neutral"></div>

@@ -1,13 +1,15 @@
 import { initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
 
+console.log("yes i got it this stirng", import.meta.env.VITE_PASS);
+
 const firebaseConfig = {
-  apiKey: "AIzaSyDVUnMAIw6q38qHLL-Hkz2ZI2msR9MqO94",
-  authDomain: "social-media-setup.firebaseapp.com",
-  projectId: "social-media-setup",
-  storageBucket: "social-media-setup.appspot.com",
-  messagingSenderId: "588094763929",
-  appId: "1:588094763929:web:0f4bf43f7d2e19d860d908",
+  apiKey: import.meta.env.VITE_APIKEY,
+  authDomain: import.meta.env.VITE_AUTHDOMAIN,
+  projectId: import.meta.env.VITE_PROJECTID,
+  storageBucket: import.meta.env.VITE_STORAGEBUCKET,
+  messagingSenderId: import.meta.env.VITE_MESSAGINGSENDERID,
+  appId: import.meta.env.VITE_APPID,
 };
 
 // Initialize Firebase
