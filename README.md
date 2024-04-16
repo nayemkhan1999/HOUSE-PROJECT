@@ -1,8 +1,24 @@
-# React + Vite
+# HOUSE-PROJECT
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+live link url:
 
-Currently, two official plugins are available:
+- This website is residential website property sell or rent.. Your Dreame House
+- You can purchase any House or any property jusy chosing for your dreame house!
+- View all details show the display
+- You can sort any details
+- if you chouse our property/house you can contact us..
+- And please visit our website and don't forget review.....
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Used By
+
+This project is used by the following npm package name:
+
+- AOS Package,
+- React Hook form,
+- Swiper slider,
+- React icons,
+- Tailwind CSS,
+- Daisy UI,
+- Mamba UI - Components,
+- React-Hot-Toast,
+- React Router Dom,

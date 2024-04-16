@@ -5,7 +5,7 @@ const Cards = () => {
   const [user, setUser] = useState([]);
 
   useEffect(() => {
-    fetch("/public/fake-data.json")
+    fetch("/fake-data.json")
       .then((res) => res.json())
       .then((data) => {
         setUser(data);

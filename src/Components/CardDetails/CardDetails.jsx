@@ -6,7 +6,7 @@ const CardDetails = () => {
   const { id } = useParams();
 
   useEffect(() => {
-    fetch("/public/fake-data.json")
+    fetch("/fake-data.json")
       .then((res) => res.json())
       .then((data) => {
         const sigleData = data.find((card) => card.id == +id);

@@ -20,14 +20,6 @@ const AllCard = ({ card }) => {
     status,
   } = card;
 
-  // const { loading } = useContext(AuthContex);
-
-  // if (loading) {
-  //   return (
-  //     <span className="loading loading-bars loading-lg ml-72 mx-auto"></span>
-  //   );
-  // }
-
   return (
     <div className="container mx-auto font-poppins">
       <div className="card card-compact h-[80vh] bg-base-100 shadow-xl mt-10">
@@ -55,20 +47,27 @@ const AllCard = ({ card }) => {
             {price}
           </p>
         </div>
-       <div className=" flex items-center justify-between mx-4 mt-5">
-       <p
-          data-aos="fade-right"
-          data-aos-delay="1600"
-          className="mx-4 text-sm font-semibold opacity-90"
+        <div className=" flex items-center justify-between mx-4 mt-5">
+          <p
+            data-aos="fade-right"
+            data-aos-delay="1600"
+            className="mx-4 text-sm font-semibold opacity-90"
           >
-          {title}
-        </p>
-         <div data-aos="fade-right"
-          data-aos-delay="1700" className="flex items- gap-3">
-         <p className=" font-semibold">{status}</p>
-          <img className="w-8 h-6" src="https://cdn-icons-png.flaticon.com/128/1441/1441353.png" alt="" />
-         </div>
-       </div>
+            {title}
+          </p>
+          <div
+            data-aos="fade-right"
+            data-aos-delay="1700"
+            className="flex items- gap-3"
+          >
+            <p className=" font-semibold">{status}</p>
+            <img
+              className="w-8 h-6"
+              src="https://cdn-icons-png.flaticon.com/128/1441/1441353.png"
+              alt=""
+            />
+          </div>
+        </div>
         <div className="divider mx-14"></div>
         <div
           data-aos="fade-right"
@@ -222,7 +221,7 @@ const AllCard = ({ card }) => {
               </svg>
             </span>
             <span className="absolute flex items-center justify-center w-full h-full text-gray-500 font-semibold opacity-80 transition-all duration-300 transform group-hover:translate-x-full ease">
-            View Property...
+              View Property...
             </span>
             <span className="relative invisible">View Property...</span>
           </a>
